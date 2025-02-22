@@ -26,6 +26,7 @@ public class PriceServiceImpl implements PriceService {
      * Instantiates a new Price service.
      *
      * @param pricesRepository the prices repository
+     * @param priceMapper      the price mapper
      */
     public PriceServiceImpl(PricesRepository pricesRepository, PriceMapper priceMapper) {
         this.pricesRepository = pricesRepository;
@@ -37,9 +38,12 @@ public class PriceServiceImpl implements PriceService {
     @Cacheable(value = "PRICES", key = "#dto.brandId + '-' + #dto.productId + '-' + #dto.date")
     public PriceOutputDto findProductData(PriceInputDto dto) {
 
+        //Acceso a la base de datos para recuperar los datos del producto
         Optional<PriceEntity> priceEntity = pricesRepository
                 .findPrice(dto.getProductId(), dto.getBrandId(), dto.getDate());
 
+        //Funcion para retornar la salida mappeada a un DTO de salida
+        //En caso de no tener datos, retornar error
         return priceEntity.map(priceMapper::entityToOutputDto)
                 .orElseThrow(() -> new PriceNotFoundException("No hay datos disponibles para mostrar"));
     }

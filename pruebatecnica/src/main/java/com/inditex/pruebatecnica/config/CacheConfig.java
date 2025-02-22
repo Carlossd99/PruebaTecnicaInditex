@@ -10,11 +10,19 @@ import org.springframework.context.annotation.Configuration;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * The type Cache config.
+ */
 @Configuration
 @EnableCaching
 @ConditionalOnProperty(name = "spring.cache.type", havingValue = "caffeine")
 public class CacheConfig {
 
+    /**
+     * Cache manager caffeine cache manager.
+     *
+     * @return the caffeine cache manager
+     */
     @Bean
     public CaffeineCacheManager cacheManager() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager("prices");

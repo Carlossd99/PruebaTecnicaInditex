@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * The type Price input dto.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

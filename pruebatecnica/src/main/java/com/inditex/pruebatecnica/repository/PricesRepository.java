@@ -35,19 +35,12 @@ public interface PricesRepository extends JpaRepository<PriceEntity, Long> {
     /**
      * Find by product id and brand id and start date before and end date after order by priority desc list.
      *
+     * Opcion de consulta mediante JPA
+     *
      * @param productId the product id
      * @param brandId   the brand id
      * @param date      the date
      * @return the list
      */
     //List<PriceEntity> findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfterOrderByPriorityDesc(int productId, int brandId, LocalDateTime date);
-
-
-    /**
-     * Find by product id and brand id and start date before and end date after order by priority desc list.
-     *
-     * @return the list
-     */
-    @Query(value = "SELECT * FROM prices", nativeQuery = true)
-    List<PriceEntity> findAllPrices();
 }
