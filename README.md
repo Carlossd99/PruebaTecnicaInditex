@@ -24,7 +24,7 @@ Este proyecto es una API REST desarrollada en **Spring Boot 3.4.3**, que permite
 Por defecto, la API estará disponible en `http://localhost:8080`.
 
 
-## 📂 Estructura del Código
+## Estructura del Código
 
 ```
 pruebatecnica/
@@ -98,7 +98,7 @@ La API implementa un **manejador global de excepciones** utilizando `@Controller
 
 ## Caché
 
-📌 **Configuración en ****`application.properties`****:**
+**Configuración en ****`application.properties`****:**
 
 ```properties
 # Cache
